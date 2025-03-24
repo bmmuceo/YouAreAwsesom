@@ -12,7 +12,7 @@ struct ContentView: View {
         
         VStack {
            
-                Text("What is Football to you!")
+                Text("I am an app developer!")
                     .font(.largeTitle)
                     .fontWeight(.thin)
                     .foregroundStyle(.orange)
@@ -40,4 +40,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .preferredColorScheme(.dark)
 }
