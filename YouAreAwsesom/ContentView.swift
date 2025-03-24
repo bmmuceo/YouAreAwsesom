@@ -11,25 +11,17 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+            
+            Image(systemName: "swift")
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.orange)
            
                 Text("I am an app developer!")
                     .font(.largeTitle)
                     .fontWeight(.thin)
                     .foregroundStyle(.orange)
-            HStack {
-                Image(systemName: "figure.american.football")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.blue)
-                Image(systemName: "figure.australian.football")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.indigo)
-                Image(systemName: "figure.indoor.soccer")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.purple)
-            }
+            
         }
         
         
