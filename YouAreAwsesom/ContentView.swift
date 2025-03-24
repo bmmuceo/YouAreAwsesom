@@ -14,11 +14,11 @@ struct ContentView: View {
     @State private var lastMessageNumber = -1 /// will never be -1
     @State private var lastImageNumber = -1
     
+    let numberOfImages = 8
+    
     var body: some View {
         
         VStack {
-            
-            
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -64,12 +64,11 @@ struct ContentView: View {
                 
                 
                
-                var imageNumber = Int.random(in: 0...9)
-                while imageNumber == lastImageNumber {
-                    imageNumber = Int.random(in: 0...9)
-                }
+                var imageNumber : Int
+                repeat {
+                    imageNumber = Int.random(in: 0...(numberOfImages-1))
+                }while imageNumber == lastImageNumber
                 imageName = "image\(imageNumber)"
-                
                 lastImageNumber = imageNumber
             }
             
