@@ -16,21 +16,24 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.orange)
-           
-                Text("I am an app developer!")
-                    .font(.largeTitle)
-                    .fontWeight(.thin)
-                    .foregroundStyle(.orange)
+            
+            Text("I am an app developer!")
+                .font(.largeTitle)
+                .fontWeight(.thin)
+                .foregroundStyle(.orange)
+            Button("Click Me!") {
+                print("You Clicked Me")
+            }
             
         }
-        
-        
-        .padding()
-        
+            
+            .padding()
+            
+        }
     }
-}
+    
+    #Preview {
+        ContentView()
+            .preferredColorScheme(.dark)
+    }
 
-#Preview {
-    ContentView()
-        .preferredColorScheme(.dark)
-}
