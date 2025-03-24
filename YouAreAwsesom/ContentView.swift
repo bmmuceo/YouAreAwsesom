@@ -10,31 +10,54 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var message = ""
-    @State private var imageString = "swift"
+    @State private var imageName = ""
+    @State private var imageNumber = 0
+    @State private var messageNumber = 0
+    
     var body: some View {
         
         VStack {
             
-            Spacer()
-            
-            Image(systemName: imageString)
-                .resizable()
-                .scaledToFit()
-                .foregroundStyle(.orange)
             
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
-                .foregroundStyle(.orange)
+                .fontWeight(.heavy)
+                .foregroundStyle(.red)
+                .multilineTextAlignment(.center)
+            
+            
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .clipShape(.rect(cornerRadius: 30))
+                .shadow(color: .white, radius: 130.0, x: 10.0)
+                .minimumScaleFactor(5)
+                .padding()
+            
+            
             
             
             Spacer()
             
             Button("Press Me") {
-                let message1 = "You are Italian"
-                let message2 =  "You are Great!"
-                let imageString1 = "hand.thumbsup"
-                let imageString2 = "sun.max.fill"
+                
+                let messages = ["hi",
+                                "ho",
+                                "yo",
+                                "mo",
+                                "co",
+                                "do",
+                                "ko",
+                                "tu",
+                                "wo"]
+                
+                message = messages[messageNumber]
+                messageNumber += 1
+                
+                if messageNumber == messages.count {
+                    messageNumber = 0
+                }
+                
                 
                 //                if message == message1 {
                 //                    message = message2
@@ -44,11 +67,18 @@ struct ContentView: View {
                 //                    imageString = imageString1
                 //                }
                 
-                message = (message == message1 ? message2 : message1 )
-                imageString = (imageString == imageString1 ? imageString2 : imageString1)
+                
+                // TODO: Update the variable name variable
+                imageName = "image\(imageNumber)"
+                //  imageNumber = imageNumber + 1
+                imageNumber += 1
+                
+                if imageNumber > 9 {
+                    imageNumber = 0
+                }
                 
             }
-        
+            
             .buttonStyle(.borderedProminent)
             .font(.title2)
             .tint(.orange)
