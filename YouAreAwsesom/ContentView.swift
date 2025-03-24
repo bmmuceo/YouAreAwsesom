@@ -9,49 +9,58 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var message = ("I'm A Programmer!")
+    @State private var message = ""
+    @State private var imageString = "swift"
     var body: some View {
         
         VStack {
+            
             Spacer()
             
-                Image(systemName: "swift")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.orange)
-                    .frame(width: 290, height: 290, alignment: .center)
-          
-                Text(message)
-                    .font(.largeTitle)
-                    .fontWeight(.ultraLight)
-                    .foregroundStyle(.orange)
+            Image(systemName: imageString)
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.orange)
+            
+            Text(message)
+                .font(.largeTitle)
+                .fontWeight(.ultraLight)
+                .foregroundStyle(.orange)
+            
+            
             Spacer()
             
-            HStack {
-                Button("Awesome!") {
-                    message = "Awsome!"
-                }
-              
-           
+            Button("Press Me") {
+                let message1 = "You are Italian"
+                let message2 =  "You are Great!"
+                let imageString1 = "hand.thumbsup"
+                let imageString2 = "sun.max.fill"
                 
-                Button("Great!") {
-                    message = "Great!"
-                }
-            
+                //                if message == message1 {
+                //                    message = message2
+                //                    imageString = imageString2
+                //                } else {
+                //                    message = message1
+                //                    imageString = imageString1
+                //                }
+                
+                message = (message == message1 ? message2 : message1 )
+                imageString = (imageString == imageString1 ? imageString2 : imageString1)
+                
             }
+        
             .buttonStyle(.borderedProminent)
             .font(.title2)
             .tint(.orange)
-        }
-            .padding()
             
+            
+            .padding()
         }
+    }
+}
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
     
-    }
-
-
-    #Preview {
-        ContentView()
-            .preferredColorScheme(.dark)
-    }
-
+}
